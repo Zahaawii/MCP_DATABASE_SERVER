@@ -1,4 +1,4 @@
-package com.example.testmcp.entity;
+package com.example.testmcp.BlogFeature.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

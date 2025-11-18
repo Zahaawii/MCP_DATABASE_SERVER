@@ -1,6 +1,6 @@
 package com.example.testmcp;
 
-import com.example.testmcp.entity.Blog;
+import com.example.testmcp.BlogFeature.entity.Blog;
 import com.example.testmcp.repositories.BlogRepository;
 import com.example.testmcp.repositories.UserRepository;
 import org.slf4j.Logger;

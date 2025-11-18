@@ -1,6 +1,6 @@
 package com.example.testmcp.repositories;
 
-import com.example.testmcp.entity.UserInfo;
+import com.example.testmcp.BlogFeature.entity.UserInfo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

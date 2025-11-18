@@ -34,6 +34,7 @@ The setup is functional, extendable, and ready for deeper integration into large
 - https://docs.spring.io/spring-ai/reference/api/embeddings/google-genai-embeddings-text.html
 - https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/chroma/vectorstore/ChromaApi.html?utm_source=chatgpt.com
 - https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/vectorstore/VectorStore.html?utm_source=chatgpt.com
+- https://www.baeldung.com/spring-parameterized-type-reference
 
 
 (And additional sources explored during implementation.)

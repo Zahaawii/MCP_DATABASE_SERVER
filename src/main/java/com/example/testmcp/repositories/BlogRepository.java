@@ -1,6 +1,6 @@
 package com.example.testmcp.repositories;
 
-import com.example.testmcp.entity.Blog;
+import com.example.testmcp.BlogFeature.entity.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,18 +1,14 @@
 package com.example.testmcp;
 
 
-import com.example.testmcp.entity.Blog;
+import com.example.testmcp.BlogFeature.entity.Blog;
 import com.example.testmcp.repositories.BlogRepository;
-import org.checkerframework.checker.units.qual.A;
-import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 
 /*
@@ -42,16 +38,4 @@ public class testController {
         return blogRepository.findAll();
     }
 
-    @GetMapping("/test")
-    public String test() {
-//        List<Document> documents = List.of(
-//                new Document("Spring AI rocks!! Spring AI rocks!! Spring AI rocks!! Spring AI rocks!! Spring AI rocks!!", Map.of("meta1", "meta1")),
-//                new Document("The World is Big and Salvation Lurks Around the Corner"),
-//                new Document("You walk forward facing the past and you turn back toward the future.", Map.of("meta2", "meta2")));
-//
-//        vectorStore.add(documents);
-
-        vectorStore.delete(List.of("SQL_DELETE_ROW"));
-        return "Succes";
-    }
 }
