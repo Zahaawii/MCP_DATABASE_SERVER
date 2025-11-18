@@ -59,13 +59,11 @@ public class BlogServiceMCP {
         }
     }
 
-    //TODO Working on adding a blog post, but having issues with the publishDate format
     @McpTool(name = "CreateBlogPost", description = "Gives the possibility to upload a blog post")
-    public String createBlogPost(@McpToolParam String subject, String body, String category, Long userId, Date publishDate) {
-        publishDate = Date.valueOf("2025-11-25");
+    public String createBlogPost(@McpToolParam String subject, String body, String category, Long userId, Date publishDate, String jwtToken) {
         try {
             log.info("Trying to upload a blog post: {}", subject);
-            return createBlogPost(subject, body, category, userId, publishDate);
+            return blogApi.createBlogPost(subject, body, category, userId, publishDate, jwtToken);
         } catch (Exception e) {
             log.error("Couldn't upload blog post");
             throw new RuntimeException(e);
