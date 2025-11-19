@@ -35,6 +35,8 @@ The setup is functional, extendable, and ready for deeper integration into large
 - https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/chroma/vectorstore/ChromaApi.html?utm_source=chatgpt.com
 - https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/vectorstore/VectorStore.html?utm_source=chatgpt.com
 - https://www.baeldung.com/spring-parameterized-type-reference
+- https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/
+- https://www.baeldung.com/mockito-verify
 
 
 (And additional sources explored during implementation.)

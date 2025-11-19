@@ -18,11 +18,11 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 public class BlogServiceMCPUnitTest {
 
-    @Autowired(required = false)
+    @Autowired
     private ApplicationContext applicationContext;
 
     //MCP tools
-    @Autowired(required = false)
+    @Autowired
     private BlogServiceMCP blogServiceMCP;
 
     //Mocking the data
@@ -37,7 +37,7 @@ public class BlogServiceMCPUnitTest {
 
     // Testing to see if the blogService bean exist
     @Test
-    void blogServiceTools_shouldBeCreated() {
+    void blogServiceAPI_shouldBeMockedBySpring() {
         assertNotNull(blogServiceAPI, "BlogService should be created");
     }
 
@@ -47,64 +47,71 @@ public class BlogServiceMCPUnitTest {
         assertNotNull(blogServiceMCP, "BlogService should be created");
     }
 
-    // Wanted to learn how to test MCP methods, so didnt split it up
-    //TODO:: Seperate the test so its not one method.
     @Test
-    void mcpToolsAreScannable() {
+    void mcpGetAllBlogPost() {
 
-        //  ---Trying to follow Act Assert Arrange ----
-
-        //  ----ARRANGE----
-
-        //Creating some parameters to test later
-        String success = "Blog post deleted";
-        String jwtToken = "jwtToken";
-        String username = "MCPtest";
-        String password = "1234";
-        String author = "Zahaawii";
-        int id = 100;
         List<BlogDTO> blogsList = List.of(new BlogDTO(0, null, null, null, null, null));
-
-        //Mock the data
-        when(blogServiceAPI.login(username, password)).thenReturn(jwtToken);
         when(blogServiceAPI.getAllBlogPost()).thenReturn(blogsList);
-        when(blogServiceAPI.getAllByAuthor(author)).thenReturn(blogsList);
-        when(blogServiceAPI.deletePostById(100, jwtToken)).thenReturn(success);
-
-        // -----ACT-----
         List<BlogDTO> getAllBlogsresult = blogServiceMCP.getAllBlogPost();
-        List<BlogDTO> getAllByAuthorResult = blogServiceMCP.getAllBlogPostByAuthor(author);
-        String loginResult = blogServiceMCP.login(username, password);
-        String deleteResult = blogServiceMCP.deletePostById(id, jwtToken);
 
-
-        // ----ASSERT-----
-
-        // Verify that our MCP tools are discoverable by the Spring AI MCP framework
-        assertTrue(applicationContext.containsBean("blogServiceMCP"));
-
-        //get all blog
         assertNotNull(getAllBlogsresult);
         assertFalse(getAllBlogsresult.isEmpty());
-        verify(blogServiceAPI, atLeastOnce()).getAllBlogPost();
+        verify(blogServiceAPI).getAllBlogPost();
+
+    }
+
+    @Test
+    void mcpGetAllBlogPostByAuthor() {
+
+        List<BlogDTO> blogsList = List.of(new BlogDTO(0, null, null, null, null, null));
+        String author = "Zahaawii";
+        when(blogServiceAPI.getAllByAuthor(author)).thenReturn(blogsList);
+        List<BlogDTO> getAllByAuthorResult = blogServiceMCP.getAllBlogPostByAuthor(author);
 
         //get all blog by author
         assertNotNull(getAllByAuthorResult);
         assertFalse(getAllByAuthorResult.isEmpty());
-        verify(blogServiceAPI, atLeastOnce()).getAllByAuthor(author);
+        verify(blogServiceAPI).getAllByAuthor(author);
 
-        // login
+    }
+
+    @Test
+    void mcpDeleteBlogPost() {
+
+        int id = 100;
+        String success = "Blog post deleted";
+        String jwtToken = "jwtToken";
+
+        when(blogServiceAPI.deletePostById(100, jwtToken)).thenReturn(success);
+
+        assertEquals(success, blogServiceMCP.deletePostById(id, jwtToken));
+        verify(blogServiceAPI).deletePostById(id, jwtToken);
+
+    }
+
+    @Test
+    void mcpLoginToBlog() {
+        String jwtToken = "jwtToken";
+        String username = "MCPtest";
+        String password = "1234";
+        when(blogServiceAPI.login(username, password)).thenReturn(jwtToken);
+
+
+        String loginResult = blogServiceMCP.login(username, password);
+
         assertNotNull(loginResult);
         assertEquals("jwtToken", loginResult);
-        verify(blogServiceAPI, atLeastOnce()).login(username, password);
+        verify(blogServiceAPI).login(username, password);
 
-        //delete blog post
-        assertEquals(success, deleteResult);
-        verify(blogServiceAPI, atLeastOnce()).deletePostById(id, jwtToken);
+    }
 
-//        As I know the below methods will fail, as I do not want to delete a blog post and I need a JWT token, I will test if it fails
+    @Test
+    void mcpToolsAreScannable() {
+
+        // Verify that our MCP tools are discoverable by the Spring AI MCP framework
+        assertTrue(applicationContext.containsBean("blogServiceMCP"));
+
 //        assertThrows(RuntimeException.class, () -> tools.deletePostById(0, "1234"));
 //        assertThrows(RuntimeException.class, () -> tools.createBlogPost(null, null, null, null, null, null));
     }
-
 }
