@@ -30,7 +30,6 @@ jobs:
           docker compose up -d
           sleep 60
           docker ps -a
-          docker logs $(docker ps -aq --filter name=assistantai_mcp-mcp)
           curl -i http://127.0.0.1:8282/healthz
           docker compose down
 
