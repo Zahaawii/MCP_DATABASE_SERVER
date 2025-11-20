@@ -57,7 +57,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "
           cd $APP_DIR &&
-          git remote set-url origin git@github.com:Zahaawii/AssistantAI_MCP.git && 
+          git remote set-url origin https://github.com/Zahaawii/AssistantAI_MCP.git && 
           git pull origin main &&
           docker compose up --build
           "
