@@ -1,4 +1,4 @@
-package com.example.testmcp.integrationsTest;
+package com.example.testmcp.integrationsTest.blog;
 
 
 import com.example.testmcp.BlogFeature.DTO.BlogDTO;
