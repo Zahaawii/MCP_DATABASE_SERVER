@@ -41,6 +41,7 @@ The setup is functional, extendable, and ready for deeper integration into large
 - https://github.com/mockito/mockito/issues/3014
 - https://www.browserstack.com/guide/using-mockito-any
 - https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#using-the-env-context-to-access-environment-variable-values
+- https://blog.devops.dev/effortless-ubuntu-server-deployments-with-github-actions-%EF%B8%8F-3ded9ea699e8
 
 
 (And additional sources explored during implementation.)

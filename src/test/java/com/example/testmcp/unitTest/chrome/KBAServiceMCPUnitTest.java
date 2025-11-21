@@ -1,4 +1,4 @@
-package com.example.testmcp.chrome;
+package com.example.testmcp.unitTest.chrome;
 
 
 import com.example.testmcp.ChromaDB.ChromaDBConfig;
