@@ -1,10 +1,8 @@
-package com.example.testmcp.chrome;
+package com.example.testmcp.unitTest.chroma;
 
 
-import com.example.testmcp.ChromaDB.ChromaDBConfig;
 import com.example.testmcp.mcpService.KBAServiceMCP;
 import org.junit.jupiter.api.Test;
-import org.mockito.stubbing.Answer;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -13,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

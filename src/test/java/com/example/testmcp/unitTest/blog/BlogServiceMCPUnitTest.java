@@ -1,4 +1,4 @@
-package com.example.testmcp.blog;
+package com.example.testmcp.unitTest.blog;
 
 
 import com.example.testmcp.BlogFeature.DTO.BlogDTO;
@@ -111,7 +111,5 @@ public class BlogServiceMCPUnitTest {
         // Verify that our MCP tools are discoverable by the Spring AI MCP framework
         assertTrue(applicationContext.containsBean("blogServiceMCP"));
 
-//        assertThrows(RuntimeException.class, () -> tools.deletePostById(0, "1234"));
-//        assertThrows(RuntimeException.class, () -> tools.createBlogPost(null, null, null, null, null, null));
     }
 }
