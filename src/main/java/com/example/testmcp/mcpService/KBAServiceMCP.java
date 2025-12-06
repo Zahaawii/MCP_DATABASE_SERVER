@@ -22,6 +22,13 @@ public class KBAServiceMCP {
 
     private static final Logger log = LoggerFactory.getLogger(KBAServiceMCP.class);
 
+    /**
+     * Method to get the most relevant items in the vector database
+     * @param question for the AI that concludes it has to check the vector database
+     * @return the five most relevant articles from the vector database
+     * @throws Exception
+     */
+
     @McpTool(name = "FindArticles", description = "Gets the nearest similarities of the question")
     public List<Document> getSimiliaritySearch(@McpToolParam String question) throws Exception {
 
